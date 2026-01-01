@@ -11,6 +11,8 @@ app.use(cors());
 app.use(express.json());
 app.use("/api/auth", require("./routes/authRoutes"));
 app.use("/api/subscriptions", require("./routes/subscriptionRoutes"));
+app.use("/api/magazines", require("./routes/magazineRoutes"));
+
 
 
 app.get("/",(req,res)=>{
