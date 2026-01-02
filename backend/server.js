@@ -13,6 +13,8 @@ app.use("/api/auth", require("./routes/authRoutes"));
 app.use("/api/subscriptions", require("./routes/subscriptionRoutes"));
 app.use("/api/magazines", require("./routes/magazineRoutes"));
 app.use("/api/payments", require("./routes/paymentRoutes"));
+app.use("/api/admin", require("./routes/adminRoutes"));
+app.use("/api/admin/dashboard", require("./routes/adminDashboardRoutes"));
 
 
 
