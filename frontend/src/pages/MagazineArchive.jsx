@@ -12,6 +12,16 @@ function MagazineArchive() {
       .catch(err => console.error(err));
   }, []);
 
+
+const handleDownload = async (id) => {
+  try {
+    const res = await api.get(`/magazines/${id}/download`);
+    window.open(res.data.pdfUrl, "_blank");
+  } catch (err) {
+    alert(err.response?.data?.message || "ડાઉનલોડ નિષ્ફળ");
+  }
+};
+
   return (
     <div>
       <h2>{t("download")}</h2>
@@ -21,13 +31,9 @@ function MagazineArchive() {
           <h3>{mag.title}</h3>
           <p>{mag.editionMonth}</p>
 
-          <a
-            href={`http://localhost:5000/api/magazines/${mag._id}/download`}
-            target="_blank"
-            rel="noreferrer"
-          >
-            {t("download")}
-          </a>
+         <button onClick={() => handleDownload(mag._id)}>
+  ડાઉનલોડ કરો
+</button>
         </div>
       ))}
     </div>
