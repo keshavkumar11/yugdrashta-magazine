@@ -19,6 +19,13 @@ const magazineSchema = new mongoose.Schema(
       required: true // e.g. 2025-08-01
     },
 
+       // 🔑 ACCESS CONTROL
+    
+    requiresSubscription: {
+  type: Boolean,
+  default: true
+},
+
     // PDF storage (Cloudinary / S3 later)
     pdfUrl: {
       type: String,
@@ -36,6 +43,7 @@ const magazineSchema = new mongoose.Schema(
       type: Boolean,
       default: true
     }
+
   },
   { timestamps: true }
 );
